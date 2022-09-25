@@ -1,0 +1,19 @@
+extends layout
+
+block content
+    div.text-center
+        form(class="form-signin" method="POST" action="/login")
+            img(src='./images/logo2.svg' alt='login' style='width:150px; height:150px;')
+            label(for="inputPassword" class="sr-only") Password
+            input(type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required autofocus)
+
+            #error
+                if error
+                    p.text-danger Password errata!
+
+            //-signIn button
+            - var buttonClass=['btn', 'btn-lg', 'btn-primary', 'btn-block'];
+            button(class=buttonClass type="submit") Accedi
+
+            - var pClasses=['mt-5', 'mb-3', 'text-muted'];
+            p(class=pClasses) &copy; 2022-2023

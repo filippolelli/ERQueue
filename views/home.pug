@@ -1,0 +1,23 @@
+extends layout
+
+block content 
+    .text-center(id="div1" class="container") 
+        p(id="mess")
+        table(id="tabella" class="table  table-bordered" hidden)
+            thead(class="thead-dark")
+                tr
+                    th(scope="col") #
+                    th(scope="col") Nome 
+                    th(scope="col") Cognome 
+                    th(scope="col") Codice Fiscale 
+                    
+                    th(scope="col") Giorno-Orario Arrivo
+                    
+            tbody(id="tablebody")
+                
+    .text-center(id="div2" class="container") 
+        form(id="codform" action="/dismiss" method="POST" hidden class="form-register")
+            input(id="cod" name="cod" type="text" class="form-control" required placeholder="Codice Fiscale")  
+            button(type="submit" class="btn btn-primary ") Dimetti
+    script(src='./javascripts/SSE.js') 
+        script(src='./javascripts/functions.js') 

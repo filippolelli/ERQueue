@@ -1,0 +1,65 @@
+extends layout
+
+block content
+    div.text-left
+        form(class="form-register" method="POST" action="/register")
+            .row
+                .form-group
+                .col
+                    
+                    label(for="inputNome" class="sr-only") Nome
+                    input(type="text" name="nome" id="inputnome" class="form-control" placeholder="Nome" required autofocus)
+                    
+                    label(for="inputCognome" class="sr-only") Cognome
+                    input(type="text" name="cognome" id="inputcognome" class="form-control" placeholder="Cognome" required )
+
+                    label(for="inputCodiceFiscale" class="sr-only") Nome
+                    input(type="text" name="codicefiscale" id="inputcodicefiscale" class="form-control" placeholder="Codice Fiscale" required)
+                    .div(id="radios")
+                        .div(class="form-check form-check-inline")
+                            input(type="radio" name="sesso" id="inputsessoM" class="form-check-input" value="M" checked)
+                            label(for="inputsessoM" class="form-check-label") M
+                        .div(class="form-check form-check-inline")
+                            input(type="radio" name="sesso" id="inputsessoF" class="form-check-input" value="F")
+                            label(for="inputsessoF" class="form-check-label") F
+                    div.text-center
+                    .form-group
+                    .row
+                        .col
+                            button(class='colorpicker btn  btn-block' onClick='updateCodice(this.id)' style="background-color: white" id="wh" type="button" clicked)
+                            button(class='colorpicker btn btn-block' onClick='updateCodice(this.id)' style="background-color: green"  id="gr" type="button")
+                            button(class='colorpicker btn btn-block' onClick='updateCodice(this.id)' style="background-color: yellow" id="ye" type="button")
+                            button(class='colorpicker btn btn-block ' onClick='updateCodice(this.id)' style="background-color: red"  id="re" type="button")
+                        .col
+                            p(class='cod' id='codice') CODICE BIANCO
+                .col
+
+                    label(for="inputSintomi" class="sr-only") Nome
+                    textarea(type="text" name="sintomi" id="inputsintomi" class="form-control" placeholder="Descrizione Sintomi" required rows=20)
+            input(type="hidden" name="codiceVal"  id="codiceVal" value="0")
+            //-signIn button
+            - var buttonClass=['btn', 'btn-lg', 'btn-primary', 'btn-block'];
+            button(class=buttonClass type="submit") Registra
+           
+            - var pClasses=['mt-5', 'mb-3', 'text-muted'];
+           
+
+    script(src='./javascripts/functions.js')
+    .text-center
+        .container 
+            .row
+                .col-4
+                    h4=message
+                .col-4
+                    img(src=qrcode)
+                .col-4
+                
+                
+            .row
+                .col-4
+                .col-4
+                .col-4
+                    p(class=pClasses) &copy; 2022-2023
+       
+            
+    
